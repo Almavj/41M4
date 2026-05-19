@@ -9,6 +9,10 @@ import LabXss from "@/pages/lab-xss";
 import LabSqli from "@/pages/lab-sqli";
 import LabCsrf from "@/pages/lab-csrf";
 import LabLfi from "@/pages/lab-lfi";
+import Login from "@/pages/login";
+import Register from "@/pages/register";
+import Docs from "@/pages/docs";
+import ApiReference from "@/pages/api-reference";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +20,10 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/login" component={Login} />
+      <Route path="/register" component={Register} />
+      <Route path="/docs" component={Docs} />
+      <Route path="/api-reference" component={ApiReference} />
       <Route path="/lab" component={Lab} />
       <Route path="/lab/xss" component={LabXss} />
       <Route path="/lab/sqli" component={LabSqli} />
