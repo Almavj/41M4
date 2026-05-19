@@ -90,6 +90,15 @@ $ `;
           <div className="flex gap-4">
             <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary rounded-none" data-testid="link-docs">[DOCS]</Button>
             <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary rounded-none" data-testid="link-api">[API]</Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-orange-400 hover:text-orange-300 hover:bg-orange-400/10 rounded-none border border-orange-400/40"
+              onClick={() => window.location.href = '/lab'}
+              data-testid="link-lab"
+            >
+              [ATTACK BOX]
+            </Button>
             <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-background rounded-none" data-testid="btn-login">[LOGIN]</Button>
           </div>
         </div>
