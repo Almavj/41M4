@@ -1,3 +1,4 @@
+import path from "node:path";
 import express, { type Express } from "express";
 import cors from "cors";
 import session from "express-session";
@@ -8,6 +9,9 @@ import router from "./routes";
 import { logger } from "./lib/logger";
 
 const app: Express = express();
+
+const publicDir = path.resolve(__dirname, "../../41m4/dist/public");
+app.use(express.static(publicDir));
 const PgStore = pgSession(session);
 
 const sessionSecret = process.env.SESSION_SECRET ?? process.env.JWT_SECRET ?? "41m4-dev-secret-change-in-prod";
@@ -55,5 +59,9 @@ app.use(
 );
 
 app.use("/api", router);
+
+app.get("*", (_req, res) => {
+  res.sendFile(path.join(publicDir, "index.html"));
+});
 
 export default app;
