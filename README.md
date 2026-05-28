@@ -2,31 +2,6 @@
 
 41M4 is a full-stack, authorized web-security training platform: a searchable payload arsenal plus contained vulnerable labs for practicing modern application security testing.
 
-## Run & Operate
-
-- `pnpm --filter @workspace/api-server run dev` - run the API server
-- `pnpm --filter @workspace/41m4 run dev` - run the React frontend
-- `pnpm run typecheck` - full typecheck across packages
-- `pnpm run build` - typecheck and build packages
-- `pnpm --filter @workspace/api-spec run codegen` - regenerate generated API clients and schemas from OpenAPI
-- `pnpm --filter @workspace/db run push` - push DB schema changes in development
-- `pnpm --filter @workspace/scripts run seed:payloads` - seed the payload arsenal
-
-Required environment:
-
-- `DATABASE_URL` or `SUPABASE_DB_URL` - PostgreSQL connection string for your Supabase database
-- `PORT` - API server port
-- `SESSION_SECRET` - production session signing secret
-
-## Stack
-
-- Workspace: pnpm, TypeScript, Node.js 24
-- Frontend: React 19, Vite, Wouter, TanStack Query, Tailwind CSS, Radix UI
-- API: Express 5, Pino logging, session auth
-- Database: PostgreSQL, Drizzle ORM, drizzle-zod
-- API contracts: OpenAPI 3.1, Orval-generated clients and Zod schemas
-
-## Product
 
 41M4 has three main surfaces:
 
@@ -55,8 +30,3 @@ Logged-in users get progress tracking through `lab_sessions`; successful attempt
 - The OpenAPI spec in `lib/api-spec/openapi.yaml` is the contract source for generated clients.
 - Frontend lab pages use iframes to keep target behavior visually isolated from the operator interface.
 
-## Gotchas
-
-- The labs are meant for local or controlled training environments, not public production exposure without additional sandboxing and rate controls.
-- `DATABASE_URL` or `SUPABASE_DB_URL` is required even for API startup because sessions and payload search depend on PostgreSQL.
-- Run DB push before seeding payloads on a new database.
